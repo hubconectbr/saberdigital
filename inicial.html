@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pós-Graduação em Gestão, Tecnologia e Inovação na Justiça Eleitoral</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0b1a2e; /* Fundo azul escuro */
+            color: #e0e7ff;
+        }
+        /* Banner principal em tela cheia */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .header-bg {
+            background-color: rgba(11, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        .text-golden {
+            color: #d4af37; /* Cor dourada */
+        }
+        .bg-golden {
+            background-color: #d4af37;
+        }
+        .border-golden {
+            border-color: #d4af37;
+        }
+        /* Classe para manter a proporção 16:9 dos vídeos */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        /* Estilos para o Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+        .modal-content {
+            background-color: #0b1a2e;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            animation: fadeInScale 0.3s ease-out;
+        }
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #e0e7ff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .modal-close:hover {
+            color: #d4af37;
+        }
+        /* Efeito de cinza nas fotos dos palestrantes */
+        .speaker-photo {
+            filter: grayscale(100%);
+            transition: filter 0.3s ease-in-out;
+        }
+        .speaker-card:hover .speaker-photo {
+            filter: grayscale(0%);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="header-bg fixed w-full z-50 py-4 shadow-xl">
+        <div class="container mx-auto px-4 md:px-8">
+            <nav class="flex justify-between items-center">
+                <a href="#" class="text-3xl font-bold text-golden">
+                    <span class="text-4xl text-golden">&#9632;</span> JUSTIÇA ELEITORAL
+                </a>
+                <button onclick="openModal()" class="bg-golden text-[#0b1a2e] px-6 py-2 rounded-full text-sm font-semibold hover:bg-[#a98a28] transition-colors duration-300">
+                    Inscreva-se Agora
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section - Banner em tela cheia -->
+        <section class="hero-section">
+            <!-- Imagem do banner -->
+            <img src="images/banner_principal_pos.jpg" onerror="this.onerror=null;this.src='https://placehold.co/1920x1080/0b1a2e/d4af37?text=Banner+do+Curso';" alt="Banner do Curso de Pós-Graduação" class="hero-image">
+        </section>
+
+        <!-- About Course Section -->
+        <section class="py-16 md:py-20">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-wider text-golden">
+                    Pós-Graduação em Gestão, Tecnologia e Inovação na Justiça Eleitoral
+                </h1>
+                <p class="mt-4 text-lg sm:text-xl font-light opacity-90 max-w-3xl mx-auto">
+                    INÍCIO DAS AULAS: 17/09/2025
+                </p>
+                <p class="mt-2 text-base sm:text-lg font-light opacity-70 max-w-3xl mx-auto">
+                    (Certificado e registrado no MEC pelo CENTRO UNIVERSITÁRIO UNIOPET)
+                </p>
+                <button onclick="openModal()" class="mt-10 bg-golden text-[#0b1a2e] px-8 py-4 rounded-full text-lg font-bold hover:bg-[#a98a2e] transition-colors duration-300 transform hover:scale-105 inline-block shadow-lg">
+                    Quero Saber Mais
+                </button>
+                <div class="max-w-4xl mx-auto mt-16">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-golden">Sobre o Curso</h2>
+                    <p class="mt-6 text-lg text-gray-300 leading-relaxed">
+                        A Pós-Graduação em Gestão, Tecnologia e Inovação na Justiça Eleitoral foi criada para preparar servidores e servidoras para os novos desafios institucionais atuais, com ênfase em inovação, eficiência, tecnologia e excelência no serviço público.
+                    </p>
+                    <p class="mt-4 text-lg text-gray-300 leading-relaxed">
+                        Composta por nove disciplinas inovadoras, a especialização abrange competências tecnológicas, gestão com eficiência, uso de inteligência artificial, otimização de rotinas, organização de eleições, uso estratégico de sistemas, bem-estar no trabalho e planejamento para a aposentadoria.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Differentiators Section -->
+        <section class="py-16 md:py-20 bg-[#142640]">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-golden">Diferenciais</h2>
+                    <p class="mt-4 text-lg text-gray-400">O que torna nossa pós-graduação única:</p>
+                    <div class="mt-8 grid grid-cols-1 gap-6 text-left">
+                        <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-lg border border-golden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 flex items-start space-x-4">
+                            <div class="text-2xl text-golden">✅</div>
+                            <p class="text-gray-300">Primeira pós-graduação do Brasil com foco prático em todas as áreas da Justiça Eleitoral.</p>
+                        </div>
+                        <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-lg border border-golden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 flex items-start space-x-4">
+                            <div class="text-2xl text-golden">✅</div>
+                            <p class="text-gray-300">Alinhada às competências exigidas pelo Poder Judiciário e às transformações tecnológicas do setor público.</p>
+                        </div>
+                        <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-lg border border-golden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 flex items-start space-x-4">
+                            <div class="text-2xl text-golden">✅</div>
+                            <p class="text-gray-300">Corpo docente composto por mestres, especialistas e servidores atuantes em tribunais e cartórios.</p>
+                        </div>
+                        <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-lg border border-golden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 flex items-start space-x-4">
+                            <div class="text-2xl text-golden">✅</div>
+                            <p class="text-gray-300">Certificação de especialista registrada no MEC e emitida pelo CENTRO UNIVERSITÁRIO UNIOPET.</p>
+                        </div>
+                        <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-lg border border-golden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 flex items-start space-x-4">
+                            <div class="text-2xl text-golden">✅</div>
+                            <p class="text-gray-300">Curso com carga horária e estrutura compatíveis com o Adicional de Qualificação previsto na nova lei.</p>
+                        </div>
+                        <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-lg border border-golden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 flex items-start space-x-4">
+                            <div class="text-2xl text-golden">✅</div>
+                            <p class="text-gray-300">Avaliações objetivas, práticas e sem complicação.</p>
+                        </div>
+                        <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-lg border border-golden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 flex items-start space-x-4">
+                            <div class="text-2xl text-golden">✅</div>
+                            <p class="text-gray-300">O TCC é facultativo e não é exigência para a certificação final.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Topics Section -->
+        <section class="py-16 md:py-20">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-golden">Disciplinas e Conteúdos</h2>
+                <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Topic Card 1 -->
+                    <div class="bg-[#142640] p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="text-5xl text-golden mb-4">🖥️</div>
+                        <h3 class="text-xl font-bold text-golden">Competências Tecnológicas</h3>
+                        <p class="mt-2 text-gray-300">
+                            Ferramentas e sistemas digitais para otimizar a rotina institucional.
+                        </p>
+                    </div>
+                    <!-- Topic Card 2 -->
+                    <div class="bg-[#142640] p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="text-5xl text-golden mb-4">📈</div>
+                        <h3 class="text-xl font-bold text-golden">Gestão com Eficiência</h3>
+                        <p class="mt-2 text-gray-300">
+                            Metodologias e práticas para gerenciar projetos e equipes com excelência.
+                        </p>
+                    </div>
+                    <!-- Topic Card 3 -->
+                    <div class="bg-[#142640] p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="text-5xl text-golden mb-4">🤖</div>
+                        <h3 class="text-xl font-bold text-golden">Uso de Inteligência Artificial</h3>
+                        <p class="mt-2 text-gray-300">
+                            Aplicação de IA no serviço público de forma ética e produtiva.
+                        </p>
+                    </div>
+                    <!-- Topic Card 4 -->
+                    <div class="bg-[#142640] p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="text-5xl text-golden mb-4">🗳️</div>
+                        <h3 class="text-xl font-bold text-golden">Organização de Eleições</h3>
+                        <p class="mt-2 text-gray-300">
+                            Planejamento e execução de pleitos, da rotina aos eventos.
+                        </p>
+                    </div>
+                    <!-- Topic Card 5 -->
+                    <div class="bg-[#142640] p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="text-5xl text-golden mb-4">📊</div>
+                        <h3 class="text-xl font-bold text-golden">Otimização de Rotinas</h3>
+                        <p class="mt-2 text-gray-300">
+                            Técnicas para aprimorar o desempenho e a produtividade no trabalho.
+                        </p>
+                    </div>
+                    <!-- Topic Card 6 -->
+                    <div class="bg-[#142640] p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="text-5xl text-golden mb-4">⚖️</div>
+                        <h3 class="text-xl font-bold text-golden">Gestão de Sistemas Eleitorais</h3>
+                        <p class="mt-2 text-gray-300">
+                            Domínio técnico dos principais sistemas e normas do setor.
+                        </p>
+                    </div>
+                    <!-- Topic Card 7 -->
+                    <div class="bg-[#142640] p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="text-5xl text-golden mb-4">🧘</div>
+                        <h3 class="text-xl font-bold text-golden">Bem-Estar no Trabalho</h3>
+                        <p class="mt-2 text-gray-300">
+                            Cuidado com a saúde mental e o propósito profissional.
+                        </p>
+                    </div>
+                    <!-- Topic Card 8 -->
+                    <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-lg border border-golden hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="text-2xl text-golden">📅</div>
+                        <h3 class="text-xl font-bold text-golden">Planejamento para Aposentadoria</h3>
+                        <p class="mt-2 text-gray-300">
+                            Preparação para o futuro e os benefícios da aposentadoria.
+                        </p>
+                    </div>
+                    <!-- Topic Card 9 -->
+                    <div class="bg-[#142640] p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="text-5xl text-golden mb-4">💡</div>
+                        <h3 class="text-xl font-bold text-golden">Inovação no Serviço Público</h3>
+                        <p class="mt-2 text-gray-300">
+                            Aplicação de estratégias inovadoras na rotina institucional.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Speakers Section -->
+        <section class="py-16 md:py-20 bg-[#142640]">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-golden">Corpo Docente</h2>
+                <p class="mt-4 text-lg text-gray-400">
+                    Conheça os especialistas que irão compartilhar sua experiência com você.
+                </p>
+                <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Speaker Card 1 -->
+                    <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-md border border-golden speaker-card">
+                        <img src="images/foto_frederico.jpg" onerror="this.onerror=null;this.src='https://placehold.co/128x128/0b1a2e/d4af37?text=Frederico';" alt="Foto do palestrante" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-[#142640] shadow-lg speaker-photo">
+                        <h3 class="text-xl font-bold text-golden">Frederico Rafael Martins de Almeida</h3>
+                        <p class="mt-1 text-gray-300">Docente</p>
+                    </div>
+                    <!-- Speaker Card 2 -->
+                    <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-md border border-golden speaker-card">
+                        <img src="images/foto_tatiana.jpg" onerror="this.onerror=null;this.src='https://placehold.co/128x128/0b1a2e/d4af37?text=Tatiana';" alt="Foto do palestrante" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-[#142640] shadow-lg speaker-photo">
+                        <h3 class="text-xl font-bold text-golden">Tatiana Rodrigues</h3>
+                        <p class="mt-1 text-gray-300">Docente</p>
+                    </div>
+                    <!-- Speaker Card 3 -->
+                    <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-md border border-golden speaker-card">
+                        <img src="images/Foto_Marcos_Rafael.png" onerror="this.onerror=null;this.src='https://placehold.co/128x128/0b1a2e/d4af37?text=Marcos';" alt="Foto do palestrante" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-[#142640] shadow-lg speaker-photo">
+                        <h3 class="text-xl font-bold text-golden">Marcos Rafael Coelho</h3>
+                        <p class="mt-1 text-gray-300">Docente</p>
+                    </div>
+                    <!-- Speaker Card 4 -->
+                    <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-md border border-golden speaker-card">
+                        <img src="images/Foto_Ulisses.png" onerror="this.onerror=null;this.src='https://placehold.co/128x128/0b1a2e/d4af37?text=Ulysses';" alt="Foto do palestrante" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-[#142640] shadow-lg speaker-photo">
+                        <h3 class="text-xl font-bold text-golden">Ulysses Pereira de Almeida Neto</h3>
+                        <p class="mt-1 text-gray-300">Docente</p>
+                    </div>
+                    <!-- Speaker Card 5 -->
+                    <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-md border border-golden speaker-card">
+                        <img src="images/Foto_Sabrina.jpg" onerror="this.onerror=null;this.src='https://placehold.co/128x128/0b1a2e/d4af37?text=Sabrina';" alt="Foto do palestrante" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-[#142640] shadow-lg speaker-photo">
+                        <h3 class="text-xl font-bold text-golden">Sabrina Braga de Paula</h3>
+                        <p class="mt-1 text-gray-300">Docente</p>
+                    </div>
+                    <!-- Speaker Card 6 -->
+                    <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-md border border-golden speaker-card">
+                        <img src="images/Foto_Patricia_Gasparro.jpg" onerror="this.onerror=null;this.src='https://placehold.co/128x128/0b1a2e/d4af37?text=Patricia';" alt="Foto do palestrante" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-[#142640] shadow-lg speaker-photo">
+                        <h3 class="text-xl font-bold text-golden">Patricia Gasparro Sevilha</h3>
+                        <p class="mt-1 text-gray-300">Docente</p>
+                    </div>
+                    <!-- Speaker Card 7 -->
+                    <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-md border border-golden speaker-card">
+                        <img src="images/Foto_Jamile_Tom.jpg" onerror="this.onerror=null;this.src='https://placehold.co/128x128/0b1a2e/d4af37?text=Jamile';" alt="Foto do palestrante" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-[#142640] shadow-lg speaker-photo">
+                        <h3 class="text-xl font-bold text-golden">Jamile Tom Kuntz</h3>
+                        <p class="mt-1 text-gray-300">Docente</p>
+                    </div>
+                    <!-- Speaker Card 8 -->
+                    <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-md border border-golden speaker-card">
+                        <img src="images/Foto_Michele_Pimentel.jpg" onerror="this.onerror=null;this.src='https://placehold.co/128x128/0b1a2e/d4af37?text=Michele';" alt="Foto do palestrante" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-[#142640] shadow-lg speaker-photo">
+                        <h3 class="text-xl font-bold text-golden">Michele Pimentel Duarte</h3>
+                        <p class="mt-1 text-gray-300">Docente</p>
+                    </div>
+                    <!-- Speaker Card 9 -->
+                    <div class="bg-[#0b1a2e] p-6 rounded-2xl shadow-md border border-golden speaker-card">
+                        <img src="images/Foto_Keine_Borges.png" onerror="this.onerror=null;this.src='https://placehold.co/128x128/0b1a2e/d4af37?text=Karine';" alt="Foto do palestrante" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-[#142640] shadow-lg speaker-photo">
+                        <h3 class="text-xl font-bold text-golden">Karine Borges de Liz</h3>
+                        <p class="mt-1 text-gray-300">Docente</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Convite Section -->
+        <section class="py-16 md:py-20 bg-[#142640]">
+            <div class="container mx-auto px-4 md:px-8 text-center max-w-4xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-golden">Convite Especial</h2>
+                <p class="mt-4 text-lg text-gray-400">
+                    Assista a um convite direto dos nossos coordenadores para participar da pós-graduação.
+                </p>
+                <div class="mt-8 bg-[#0b1a2e] p-4 rounded-2xl shadow-lg border-golden border-2">
+                    <div class="video-container rounded-xl">
+                        <iframe 
+                            class="w-full h-full" 
+                            src="https://www.youtube.com/embed/XU3GNTqy8mg" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-16 md:py-20">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-golden">Depoimentos de Alunos</h2>
+                <p class="mt-4 text-lg text-gray-400">
+                    Veja o que os nossos alunos têm a dizer sobre o curso.
+                </p>
+                <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Testimonial Video 1 -->
+                    <div class="bg-[#142640] p-4 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="video-container rounded-xl">
+                            <iframe 
+                                class="w-full h-full" 
+                                src="https://www.youtube.com/embed/TfiI0sftzMw" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="mt-4 text-lg font-semibold">Depoimento do Aluno 1</p>
+                    </div>
+                    <!-- Testimonial Video 2 -->
+                    <div class="bg-[#142640] p-4 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="video-container rounded-xl">
+                            <iframe 
+                                class="w-full h-full" 
+                                src="https://www.youtube.com/embed/2a8VQsKg5v0" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="mt-4 text-lg font-semibold">Depoimento do Aluno 2</p>
+                    </div>
+                    <!-- Testimonial Video 3 -->
+                    <div class="bg-[#142640] p-4 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1">
+                        <div class="video-container rounded-xl">
+                            <iframe 
+                                class="w-full h-full" 
+                                src="https://www.youtube.com/embed/dNcIu-Agns8" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <p class="mt-4 text-lg font-semibold">Depoimento do Aluno 3</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section id="inscricao" class="bg-golden py-16 md:py-20 text-[#0b1a2e] text-center">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold">
+                    Dê o próximo passo na sua carreira.
+                </h2>
+                <p class="mt-4 text-lg max-w-2xl mx-auto opacity-90">
+                    A Pós-Graduação em Gestão, Tecnologia e Inovação na Justiça Eleitoral está com vagas abertas.
+                </p>
+                <button onclick="openModal()" class="mt-8 bg-[#0b1a2e] text-golden px-8 py-4 rounded-full font-bold hover:bg-[#1a2e50] transition-colors duration-300 transform hover:scale-105 inline-block">
+                    Inscreva-se Já
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#0b1a2e] text-white py-6">
+        <div class="container mx-auto px-4 md:px-8 text-center text-sm opacity-80">
+            <p>&copy; 2025 Pós-Graduação. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de Inscrição -->
+    <div id="registrationModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button onclick="closeModal()" class="modal-close">&times;</button>
+            <div id="formContainer">
+                <h3 class="text-3xl font-bold text-golden text-center mb-6">Inscreva-se</h3>
+                <p class="text-gray-400 mb-6 text-center">
+                    Preencha os campos abaixo para receber mais informações sobre a pós-graduação.
+                </p>
+                <form id="registrationForm" action="https://docs.google.com/forms/d/e/1FAIpQLSf571s1W-qo75AcpLPUBffbQsTfrRiSRbltthHMSGwIOY2Lag/formResponse" method="POST" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-gray-400 font-semibold mb-2">Nome Completo</label>
+                        <input type="text" id="name" name="entry.550126772" class="w-full px-4 py-2 rounded-lg bg-[#142640] border border-[#1a2e50] focus:outline-none focus:ring-2 focus:ring-golden text-gray-300" placeholder="Seu nome" required>
+                    </div>
+                    <div>
+                        <label for="phone" class="block text-gray-400 font-semibold mb-2">Telefone</label>
+                        <input type="tel" id="phone" name="entry.160143335" class="w-full px-4 py-2 rounded-lg bg-[#142640] border border-[#1a2e50] focus:outline-none focus:ring-2 focus:ring-golden text-gray-300" placeholder="(99) 99999-9999" required>
+                    </div>
+                    <div>
+                        <label for="email" class="block text-gray-400 font-semibold mb-2">Email</label>
+                        <input type="email" id="email" name="entry.1572591534" class="w-full px-4 py-2 rounded-lg bg-[#142640] border border-[#1a2e50] focus:outline-none focus:ring-2 focus:ring-golden text-gray-300" placeholder="seu.email@exemplo.com" required>
+                    </div>
+                    <div class="text-center mt-6">
+                        <button type="submit" class="bg-golden text-[#0b1a2e] px-8 py-3 rounded-full font-bold hover:bg-[#a98a28] transition-colors duration-300 transform hover:scale-105 shadow-lg">
+                            Enviar Inscrição
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="successMessage" class="hidden text-center">
+                <h3 class="text-3xl font-bold text-golden mb-4">Inscrição Enviada!</h3>
+                <p class="text-gray-300 text-lg">
+                    Agradecemos seu interesse. Entraremos em contato em breve.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            const modal = document.getElementById('registrationModal');
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('registrationModal');
+            modal.classList.add('hidden');
+            document.getElementById('formContainer').classList.remove('hidden');
+            document.getElementById('successMessage').classList.add('hidden');
+        }
+        
+        // Fechar o modal ao clicar fora dele
+        window.onclick = function(event) {
+            const modal = document.getElementById('registrationModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Script para o envio assíncrono do formulário
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const formUrl = form.action;
+
+            // Constrói a URL com os dados do formulário
+            const params = new URLSearchParams();
+            for (const pair of formData.entries()) {
+                params.append(pair[0], pair[1]);
+            }
+
+            const fullUrl = `${formUrl}?${params.toString()}`;
+
+            // Envia os dados em segundo plano
+            fetch(fullUrl, {
+                method: 'POST',
+                mode: 'no-cors' // Essencial para o Google Forms
+            }).then(() => {
+                // Esconde o formulário e mostra a mensagem de sucesso
+                document.getElementById('formContainer').classList.add('hidden');
+                document.getElementById('successMessage').classList.remove('hidden');
+                form.reset();
+            }).catch(error => {
+                console.error('Erro ao enviar o formulário:', error);
+                // Opcional: mostrar uma mensagem de erro para o usuário
+                alert('Ocorreu um erro ao enviar sua inscrição. Por favor, tente novamente.');
+            });
+        });
+    </script>
+
+</body>
+</html>
