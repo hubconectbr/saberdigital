@@ -328,8 +328,40 @@
             });
         });
     </script>
+    <script>
+  (function () {
+    function shouldOpenFromURL() {
+      var params = new URLSearchParams(window.location.search || "");
+      var hash = (window.location.hash || "").toLowerCase();
+      return params.get("modal") === "inscricao" || hash === "#inscricao" || hash === "#abrir-modal";
+    }
+
+    // Abre assim que o DOM estiver pronto (ou imediatamente, se já estiver)
+    function tryOpenModal() {
+      if (typeof openModal === "function" && shouldOpenFromURL()) {
+        // aguarda um tick para garantir que o DOM do modal já esteja montado
+        setTimeout(openModal, 0);
+      }
+    }
+
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+      tryOpenModal();
+    } else {
+      document.addEventListener("DOMContentLoaded", tryOpenModal);
+    }
+
+    // Se o hash mudar para #inscricao após o carregamento, também abre
+    window.addEventListener("hashchange", function () {
+      if ((location.hash || "").toLowerCase() === "#inscricao" && typeof openModal === "function") {
+        openModal();
+      }
+    });
+  })();
+</script>
+
 </body>
 </html>
+
 
 
 
